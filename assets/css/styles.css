@@ -1,0 +1,134 @@
+/* Reset de estilos */
+* {
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Logos del equipo */
+.team-logo {
+    width: 15%; /* Tamaño del logo en escritorio */
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.left-logo {
+    left: 20px;
+}
+
+.right-logo {
+    right: 20px;
+}
+
+/* Estilos generales del Header */
+header {
+    background-color: #004A7C;
+    color: #ffffff;
+    position: relative;
+    padding: 2rem;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1.3rem;
+}
+
+/* Sección de Misión */
+.section h2 {
+    color: #004A7C;
+}
+
+.section p {
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+/* Tarjetas de Áreas de Conocimiento */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: #004A7C;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #004A7C;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+/* Enlaces */
+a {
+    color: #004A7C;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ajuste del Header */
+    header {
+        text-align: center; /* Centra el texto y los elementos */
+        padding: 1.5rem; /* Reduce el padding para pantallas pequeñas */
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    /* Logos en columnas */
+    .team-logo {
+        position: static; /* Elimina la posición absoluta */
+        transform: none; /* Quita el ajuste de posición */
+        margin: 0 auto; /* Centra los logos */
+        display: block;
+        width: 30%; /* Ajusta el tamaño de los logos en responsive */
+    }
+
+    .left-logo {
+        margin-bottom: 1rem; /* Añade un margen inferior al primer logo */
+    }
+
+    .right-logo {
+        margin-top: 1rem; /* Añade un margen superior al segundo logo */
+    }
+}
