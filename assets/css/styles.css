@@ -12,27 +12,30 @@ body {
 
 /* Logos del equipo */
 .team-logo {
-    width: 15%; /* Tamaño del logo en escritorio */
-    height: auto;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    max-width: 300px; /* Tamaño del logo en escritorio */
+    margin: 10px; /* Espacio de seguridad para que no desborde */
 }
 
-.left-logo {
-    left: 20px;
-}
+.img-cover {
+    /* Clase para forzar imagen a adaptarse al contenedor */
 
-.right-logo {
-    right: 20px;
+    display: block;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* Estilos generales del Header */
 header {
     background-color: #004A7C;
     color: #ffffff;
-    position: relative;
-    padding: 2rem;
+
+    .inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 20px;
+    }
 }
 
 header h1 {
@@ -104,7 +107,16 @@ a:hover {
     /* Ajuste del Header */
     header {
         text-align: center; /* Centra el texto y los elementos */
-        padding: 1.5rem; /* Reduce el padding para pantallas pequeñas */
+        
+        .inner {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+
     }
 
     header h1 {
@@ -117,18 +129,8 @@ a:hover {
 
     /* Logos en columnas */
     .team-logo {
-        position: static; /* Elimina la posición absoluta */
-        transform: none; /* Quita el ajuste de posición */
         margin: 0 auto; /* Centra los logos */
-        display: block;
         width: 30%; /* Ajusta el tamaño de los logos en responsive */
     }
 
-    .left-logo {
-        margin-bottom: 1rem; /* Añade un margen inferior al primer logo */
-    }
-
-    .right-logo {
-        margin-top: 1rem; /* Añade un margen superior al segundo logo */
-    }
 }
