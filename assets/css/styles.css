@@ -61,6 +61,7 @@ header p {
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
+    
 }
 
 .card:hover {
@@ -133,4 +134,38 @@ a:hover {
         width: 30%; /* Ajusta el tamaño de los logos en responsive */
     }
 
+}
+
+.btn-switch-theme {
+    position: fixed;
+    margin: 20px;
+    bottom: 20px;
+}
+
+body:is([data-bs-theme="dark"]) {
+    /* Tarjetas de Áreas de Conocimiento */
+
+    color: #d9dada;
+
+    .card {
+        border: 2px solid rgb(37, 78, 167);
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+        color: #f7f8f8;
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .card-text {
+        color: #d9dada;
+        font-size: 1rem;
+    }
+
+    
 }
