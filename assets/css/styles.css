@@ -6,33 +6,36 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    color: #333;
+    color: var(--bs-body-color);
     line-height: 1.6;
 }
 
 /* Logos del equipo */
 .team-logo {
-    width: 15%; /* Tamaño del logo en escritorio */
-    height: auto;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    max-width: 300px; /* Tamaño del logo en escritorio */
+    margin: 10px; /* Espacio de seguridad para que no desborde */
 }
 
-.left-logo {
-    left: 20px;
-}
+.img-cover {
+    /* Clase para forzar imagen a adaptarse al contenedor */
 
-.right-logo {
-    right: 20px;
+    display: block;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* Estilos generales del Header */
 header {
     background-color: #004A7C;
-    color: #ffffff;
-    position: relative;
-    padding: 2rem;
+    color: var(--bs-body-color);
+
+    .inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 20px;
+    }
 }
 
 header h1 {
@@ -58,6 +61,7 @@ header p {
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
+    
 }
 
 .card:hover {
@@ -72,14 +76,14 @@ header p {
 }
 
 .card-text {
-    color: #555;
+    color: var(--bs-body-color);
     font-size: 1rem;
 }
 
 /* Footer */
 footer {
     background-color: #004A7C;
-    color: #ffffff;
+    color: var(--bs-body-color);
     font-size: 0.9rem;
 }
 
@@ -104,7 +108,15 @@ a:hover {
     /* Ajuste del Header */
     header {
         text-align: center; /* Centra el texto y los elementos */
-        padding: 1.5rem; /* Reduce el padding para pantallas pequeñas */
+        
+        .inner {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
     }
 
     header h1 {
@@ -117,18 +129,69 @@ a:hover {
 
     /* Logos en columnas */
     .team-logo {
-        position: static; /* Elimina la posición absoluta */
-        transform: none; /* Quita el ajuste de posición */
         margin: 0 auto; /* Centra los logos */
-        display: block;
         width: 30%; /* Ajusta el tamaño de los logos en responsive */
     }
 
-    .left-logo {
-        margin-bottom: 1rem; /* Añade un margen inferior al primer logo */
+}
+
+
+
+/* Cambio de theme */
+
+/* Atributo para cambiar el theme */
+
+
+[data-bs-theme="dark"] {
+    
+    --bs-body-bg: #161925;
+}
+
+
+/* Botón de cambio de theme */
+
+
+.btn-switch-theme-container {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    
+    .btn-switch-theme {
+
+        border: 1px solid rgb(37, 78, 167);
+        background-color: #031633;
+
+        &:hover {
+            background-color: #1f2438;
+        }
     }
 
-    .right-logo {
-        margin-top: 1rem; /* Añade un margen superior al segundo logo */
-    }
 }
+
+body:is([data-bs-theme="dark"]) {
+    /* Tarjetas de Áreas de Conocimiento */
+
+    .card {
+        border: 2px solid rgb(37, 78, 167);
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+        color: var(--bs-body-color);
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .card-text {
+        color: var(--bs-body-color);
+        font-size: 1rem;
+    }
+
+    
+}
+
+

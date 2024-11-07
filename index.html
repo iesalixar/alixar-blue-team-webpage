@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" >
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,22 +31,36 @@
         
         <!-- Link a la hoja de estilos personalizada -->
         <link rel="stylesheet" href="assets/css/styles.css">
+
+        <link rel="stylesheet" href="assets/js/theme-mode.js">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     </head>
     
 <body>
 
 <!-- Header con logos -->
-<header class="bg-primary text-white text-center py-5 position-relative">
-    <img src="assets/images/logo-blue-team.png" alt="Logo Blue Team" class="team-logo left-logo">
-    <h1>Alixar Blue Team</h1>
-    <p>Equipo de Ciberseguridad del Departamento de Informática - IES Alixar</p>
-    <img src="assets/images/logo-red-team.png" alt="Logo Red Team" class="team-logo right-logo">
+<header class="bg-primary text-white text-center p-2" >
+    <div class="inner">
+
+        <div class="team-logo">
+            <img src="assets/images/logo-blue-team.png" alt="Logo Blue Team" class="img-cover">    
+        </div>
+        <div>
+            <h1>Alixar Blue Team</h1>
+            <p>Equipo de Ciberseguridad del Departamento de Informática - IES Alixar</p>
+        </div>
+        <div class="team-logo">
+            <img src="assets/images/logo-red-team.png" alt="Logo Red Team" class="img-cover">
+        </div>
+
+    </div>
 </header>
 
 <!-- Contenido principal -->
 <main>
     <!-- Misión -->
-    <section class="container my-5">
+    <section class="container my-5 m">
         <h2 class="text-primary text-center mb-4">Nuestra Misión</h2>
         <p class="text-center">
             El Alixar Blue Team tiene como objetivo proporcionar una infraestructura de ciberseguridad simulando un entorno seguro que sirva como referencia para la docencia en el IES Alixar.
@@ -112,6 +126,12 @@
     </section>
 </main>
 
+<div class="btn-switch-theme-container">
+    <button type="button" class="btn btn-secondary btn-switch-theme" id="theme-toggle">
+        
+    </button>
+</div>
+
 <!-- Footer -->
 <footer class="bg-primary text-white text-center py-3">
     <p>&copy; 2024 Alixar Blue Team. Contenido disponible bajo la licencia 
@@ -121,5 +141,37 @@
 
 <!-- Bootstrap JS y dependencias -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    let themeToggleBtn = document.getElementById('theme-toggle');
+
+    // Seteamos la variable en el almacenamiento local
+    let currentTheme = localStorage.getItem('theme') || 'light';
+
+    document.body.setAttribute('data-bs-theme', currentTheme);
+
+    // Cambiamos el icono en función del tema cuando se entre o actualice la web
+    if (currentTheme === 'light') {
+        themeToggleBtn.innerHTML = "<i class='bi bi-moon'></i>";
+    } else {
+        themeToggleBtn.innerHTML = "<i class='bi bi-brightness-high'></i>";
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+        let currentTheme = document.body.getAttribute('data-bs-theme');
+        let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        // Cambiar entre los modos claro y oscuro
+        if (currentTheme === 'light') {
+            document.body.setAttribute('data-bs-theme', newTheme);
+            themeToggleBtn.innerHTML = "<i class='bi bi-brightness-high'></i>";
+        } else {
+            document.body.setAttribute('data-bs-theme', newTheme);
+            themeToggleBtn.innerHTML = "<i class='bi bi-moon'></i>";
+        }
+
+        // Seteamos la variable en el almacenamiento local con el nuevo valor
+        localStorage.setItem('theme', newTheme);
+    });
+</script>
 </body>
 </html>
