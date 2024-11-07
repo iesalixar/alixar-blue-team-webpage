@@ -37,7 +37,7 @@
 
     </head>
     
-<body data-bs-theme="dark">
+<body>
 
 <!-- Header con logos -->
 <header class="bg-primary text-white text-center p-2" >
@@ -126,9 +126,9 @@
     </section>
 </main>
 
-<div class="btn-switch-theme">
-    <button type="button" class="btn btn-secondary" id="theme-toggle">
-        <i class="bi bi-brightness-high"></i>
+<div class="btn-switch-theme-container">
+    <button type="button" class="btn btn-secondary btn-switch-theme" id="theme-toggle">
+        
     </button>
 </div>
 
@@ -142,17 +142,35 @@
 <!-- Bootstrap JS y dependencias -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    const themeToggleBtn = document.getElementById('theme-toggle');
+    let themeToggleBtn = document.getElementById('theme-toggle');
+
+    // Seteamos la variable en el almacenamiento local
+    let currentTheme = localStorage.getItem('theme') || 'light';
+
+    document.body.setAttribute('data-bs-theme', currentTheme);
+
+    // Cambiamos el icono en función del tema cuando se entre o actualice la web
+    if (currentTheme === 'light') {
+        themeToggleBtn.innerHTML = "<i class='bi bi-moon'></i>";
+    } else {
+        themeToggleBtn.innerHTML = "<i class='bi bi-brightness-high'></i>";
+    }
+
     themeToggleBtn.addEventListener('click', function() {
-        const currentTheme = document.body.getAttribute('data-bs-theme');
+        let currentTheme = document.body.getAttribute('data-bs-theme');
+        let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
         // Cambiar entre los modos claro y oscuro
         if (currentTheme === 'light') {
-            document.body.setAttribute('data-bs-theme', 'dark');
+            document.body.setAttribute('data-bs-theme', newTheme);
             themeToggleBtn.innerHTML = "<i class='bi bi-brightness-high'></i>";
         } else {
-            document.body.setAttribute('data-bs-theme', 'light');
+            document.body.setAttribute('data-bs-theme', newTheme);
             themeToggleBtn.innerHTML = "<i class='bi bi-moon'></i>";
         }
+
+        // Seteamos la variable en el almacenamiento local con el nuevo valor
+        localStorage.setItem('theme', newTheme);
     });
 </script>
 </body>

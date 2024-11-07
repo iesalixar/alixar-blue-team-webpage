@@ -6,7 +6,7 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    color: #333;
+    color: var(--bs-body-color);
     line-height: 1.6;
 }
 
@@ -27,7 +27,7 @@ body {
 /* Estilos generales del Header */
 header {
     background-color: #004A7C;
-    color: #ffffff;
+    color: var(--bs-body-color);
 
     .inner {
         display: flex;
@@ -76,14 +76,14 @@ header p {
 }
 
 .card-text {
-    color: #555;
+    color: var(--bs-body-color);
     font-size: 1rem;
 }
 
 /* Footer */
 footer {
     background-color: #004A7C;
-    color: #ffffff;
+    color: var(--bs-body-color);
     font-size: 0.9rem;
 }
 
@@ -117,7 +117,6 @@ a:hover {
             padding: 20px;
         }
 
-
     }
 
     header h1 {
@@ -136,16 +135,41 @@ a:hover {
 
 }
 
-.btn-switch-theme {
+
+
+/* Cambio de theme */
+
+/* Atributo para cambiar el theme */
+
+
+[data-bs-theme="dark"] {
+    
+    --bs-body-bg: #161925;
+}
+
+
+/* Botón de cambio de theme */
+
+
+.btn-switch-theme-container {
     position: fixed;
-    margin: 20px;
+    left: 20px;
     bottom: 20px;
+    
+    .btn-switch-theme {
+
+        border: 1px solid rgb(37, 78, 167);
+        background-color: #031633;
+
+        &:hover {
+            background-color: #1f2438;
+        }
+    }
+
 }
 
 body:is([data-bs-theme="dark"]) {
     /* Tarjetas de Áreas de Conocimiento */
-
-    color: #d9dada;
 
     .card {
         border: 2px solid rgb(37, 78, 167);
@@ -157,15 +181,17 @@ body:is([data-bs-theme="dark"]) {
     }
 
     .card-title {
-        color: #f7f8f8;
+        color: var(--bs-body-color);
         font-size: 1.3rem;
         font-weight: bold;
     }
 
     .card-text {
-        color: #d9dada;
+        color: var(--bs-body-color);
         font-size: 1rem;
     }
 
     
 }
+
+
